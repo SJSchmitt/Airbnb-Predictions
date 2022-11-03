@@ -1,6 +1,6 @@
 
 # Airbnb-Predictions 
-![San Diego](/Resources/San Diego.jpg)
+![San Diego](San Diego.jpg)
 
 # Reason Why
 We chose this topic because the housing market is turbulent and there is a lot of attention on airbnb and how they are priced.
