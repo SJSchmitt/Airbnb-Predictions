@@ -14,10 +14,10 @@ Our primary communication is in class on Tuesdays and Thursdays and on slack thr
 
 # Data Source
 
-The dataset used for this project came from insideairbnb.com, consisting of a group of collaborators who scrub Airbnb listings, neighborhoods, and reviews from cities all over the world. For the purposes of this project, we are using quarterly data from the last 12 months to ensure accurate yearly information. San Diego currently has around 14,000 listings on the platform.
+The dataset used for this project came from insideairbnb.com, a site consisting of a group of collaborators who scrub Airbnb listings, neighborhoods, and reviews from cities all over the world. For the purposes of this project, we are using quarterly data from the last 12 months to provide a complete overview of the city across an entire year. The data we gathered puts the number of Airbnbs currently listed on the platform at about 14,000.
 
 ### What should listing price be for new rentals in San Diego?
-* Using supervied machine learning classification model to group prices based on location. 
+* Using supervised machine learning classification model to group prices based on location. 
 * Which neighborhoods have highest vs lowest prices.
 * Listings per neighborhood.
 * Good vs bad reviews.
