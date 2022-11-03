@@ -2,10 +2,12 @@
 # Airbnb-Predictions 
 ![My Image](Resources/San_Diego_skyline.jpeg)
 
-# Reason Why
-We chose this topic because the housing market is turbulent and there is a lot of attention on airbnb and how they are priced.
+# Topic/Reasoning
+Airbnb is a housing platform used by people around the world, be it home-owners, renters, or customers looking for living accomodations. The platform has been in the news a lot recently regarding their pricing and whether or not it is sustainable long-term. Airbnb expects hosts to set their own prices, and there are not many (if any) free services that provide accurate pricing for people looking to rent out their place.
 
-We are seeking through our linear regression machine learning model to understand how to correlate the price of a listing San Diego to other factors such as neighbourhood, amenities and reviews. Our data will be stored in a SQL database using postgres.
+Pricing is important, especially as decline has decreased over the past couple of years due to COVID and other risk factors preventing people from vacationing. People looking to put their property on the site need to be carfeful what price they set. Too low means not maximising earning potential, and too high means people are less likely to book.
+
+Our project aims to identify key variables in Airbnb data and use our machine learning model to predict, as accurately as we can, the daily rent price a property should be listed at in San Diego.
 
 # Team Dynamics 
 Our primary communication is in class on Tuesdays and Thursdays and on slack throughout the week.
