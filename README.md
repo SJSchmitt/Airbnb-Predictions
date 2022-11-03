@@ -1,5 +1,5 @@
 
-# Predicting Airbnb prices in San Diego with Machine Learning 
+# Predicting Airbnb prices in San Diego using Machine Learning 
 ![My Image](Resources/San_Diego_skyline.jpeg)
 
 # Project Background
