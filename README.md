@@ -14,8 +14,7 @@ Our primary communication is in class on Tuesdays and Thursdays and on slack thr
 
 # Data Source
 
-The data we are using for this project is from insideairbnb.com. We chose this site since it scrapes the data directly from airbnb's website. 
-
+The dataset used for this project came from insideairbnb.com, consisting of a group of collaborators who scrub Airbnb listings, neighborhoods, and reviews from cities all over the world. For the purposes of this project, we are using quarterly data from the last 12 months to ensure accurate yearly information. San Diego currently has around 14,000 listings on the platform.
 
 ### What should listing price be for new rentals in San Diego?
 * Using supervied machine learning classification model to group prices based on location. 
