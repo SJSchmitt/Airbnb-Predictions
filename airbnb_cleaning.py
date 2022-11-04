@@ -1,3 +1,6 @@
+import pandas as pd
+import numpy as np
+
 def clean_df(file_path):
 
     # read csv to dataframe
