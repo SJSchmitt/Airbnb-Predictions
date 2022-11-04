@@ -18,9 +18,12 @@ Our primary communication is in class on Tuesdays and Thursdays and on slack thr
 
 The dataset used for this project came from insideairbnb.com, a site consisting of a group of collaborators who scrub Airbnb listings, neighborhoods, and reviews from cities all over the world. For the purposes of this project, we are using quarterly data from the last 12 months to provide a complete overview of the city across an entire year. The data we gathered puts the number of Airbnbs currently listed on the platform at about 14,000.
 
+# Data Storage
+Our data was originally downloaded and saved as compressed CSV files.  After some [preliminary cleaning](airbnb_cleaning.py) with Python, such as converting columns to appropriate data types and addressing null values, the data was stored in a [Postgres SQL database](airbnb_toSQL.ipynb).  For each season, we have a table containing the values we plan to use in our analysis and dashboard and a second table with data we hope to train our machine learning model on.
+
 # What should listing price be for new rentals in San Diego?
 
-* Using supervised machine learning classification model to group prices based on location. 
+* Using supervised machine learning regression model to group prices based on location. 
 * Which neighborhoods have highest vs lowest prices.
 * Listings per neighborhood.
 * Good vs bad reviews.
