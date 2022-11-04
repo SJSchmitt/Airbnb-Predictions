@@ -34,7 +34,8 @@ The dataset used for this project came from insideairbnb.com, a site consisting 
 
 * Cleaning data is needed since the source has a lot of columns that contain text and boleans.
 * The columns for reviews have a dispropatianately number of "Nan" which would nessecitate us to calculate the mean and populate.
-* 
+* The price for which a customer pays is not included in the dataset, it only shows what the price was during listing.
+* The data is subdivided into seperate seasonal datasets, which makes the interpretation difficult.
 
 
 
