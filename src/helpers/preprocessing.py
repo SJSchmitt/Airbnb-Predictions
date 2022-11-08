@@ -24,16 +24,34 @@ def preprocessing(season):
     X = X.drop('neighbourhood_cleansed', axis=1)
 
     # four room_types, so no need to bin those
+
     # 78 property_types
-    prop_types = ml_df.property_type.value_counts()
+    # create a new list for renamed properties
+    new_properties = []
 
-    # bin property_type if less than 300 examples, for 10 columns with Entire home, Entire rental unit, and Entire condo 
-    # categories more populous than Other
-    replace_prop = list(prop_types[prop_types < 300].index)
-
-    # Replace in dataframe
-    for prop in replace_prop:
-        X.property_type = X.property_type.replace(prop,"Other")
+    for prop in X.property_type:
+        # replace property types containing 'Shared' with 'Shared room' to condense like values
+        # no property_types contain the word 'Shared' if they aren't a shared room, specifically
+        if "Shared" in prop:
+            new_properties.append('Shared room')
+        # same for private, no types contain 'Private' if not a private room in a different situation
+        elif ("Private" in prop) or ("Room in" in prop):
+            new_properties.append('Private room')
+        elif "Entire" in prop:
+            # entire units in a larger building/complex
+            if ("condo" in prop) or ("rental unit" in prop) or ("guest suite" in prop) or ("loft" in prop) or ("apartment" in prop):
+                new_properties.append('Entire Unit')
+            # entire buildings, may or may not be on shared property (ie a guest house)
+            else:
+                new_properties.append('Entire Home')
+        elif prop == "Tiny home":
+            new_properties.append('Entire Home')
+        elif ("Camper" in prop) or ("RV" in prop):
+            new_properties.append('Camper/RV')
+        else: 
+            new_properties.append('Other')
+    # overwrite property_type column with condensed list
+    X['property_type'] = new_properties
 
     # convert categorical room_type and property_type to dummy columns
     X = pd.get_dummies(X, columns = ['room_type', 'property_type'], prefix = ['room', 'property'])
