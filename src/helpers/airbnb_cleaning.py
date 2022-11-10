@@ -10,9 +10,7 @@ def clean_df(file_path):
     # select columns we're interested in for ml model and dashboard
 
     analysis_df = full_df[["price","neighbourhood_cleansed","room_type","accommodates","longitude","latitude","beds","bedrooms",
-
-        "property_type","bathrooms_text","review_scores_rating", "review_scores_accuracy", "review_scores_cleanliness", 
-
+        "property_type","bathrooms_text","availability_90", "minimum_nights", "host_listings_count", "review_scores_rating", "review_scores_accuracy", "review_scores_cleanliness", 
         "review_scores_checkin", "review_scores_communication", "review_scores_location", "review_scores_value", "license", "host_name"]]
 
     # process NaNs
@@ -23,6 +21,9 @@ def clean_df(file_path):
 
 
     # replace NaNs with values based on columns.  Average ratings for review_scores to 2 dec places,
+
+    # assume 1 listing if no count found
+    analysis_df['host_listings_count'].fillna(1, inplace=True)
 
     # text for host_name and license
 
