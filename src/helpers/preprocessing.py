@@ -16,6 +16,9 @@ def preprocessing(season):
     X = ml_df.drop('price', axis = 1)
     y = ml_df['price']
 
+    # drop beds and bedrooms, as they have high colinearity with accommodates
+    X = X.drop(['beds', 'bedrooms'], axis = 1)
+
     # neighbourhoods_cleansed has too many unique values (103 in fall), but binning is difficult
     # if we bin all neighbourhoods with <100 units as 'Other', we still have 37 unique values and the 'other' group
     # has over 2000 of our units (the next highest has 1975, then 953)
