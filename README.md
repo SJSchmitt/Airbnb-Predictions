@@ -45,7 +45,7 @@ exploration of the data seeked to see how these factors affect the neighbourhood
 
 Below gives a map view on where the top 10 neighbourhoods by listings are, as you can see there is a dispropotionate number of listings closer to the beach
 
-![My Image](Resources/Listings by Neightbourhood.PNG)
+![My Image](Resources/Listings_Neightbourhood.PNG)
 
 
 One thing that struck us from the data is that the priciest neighbourhood listings are not neccessarily the best rated as shown in the two figures below
