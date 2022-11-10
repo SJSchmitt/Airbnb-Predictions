@@ -18,12 +18,9 @@ Our primary communication is in class on Tuesdays and Thursdays and on slack thr
 
 The dataset used for this project came from insideairbnb.com, a site consisting of a group of collaborators who scrub Airbnb listings, neighborhoods, and reviews from cities all over the world. For the purposes of this project, we are using quarterly data from the last 12 months to provide a complete overview of the city across an entire year. The data we gathered puts the number of Airbnbs currently listed on the platform at about 14,000.
 
-# Data Storage
-Our data was originally downloaded and saved as compressed CSV files.  After some [preliminary cleaning](airbnb_cleaning.py) with Python, such as converting columns to appropriate data types and addressing null values, the data was stored in a [Postgres SQL database](airbnb_toSQL.ipynb).  For each season, we have a table containing the values we plan to use in our analysis and dashboard and a second table with data we hope to train our machine learning model on.
-
 # What should listing price be for new rentals in San Diego?
 
-* Using supervised machine learning regression model to group prices based on location. 
+* Using supervised machine learning classification model to group prices based on location. 
 * Which neighborhoods have highest vs lowest prices.
 * Listings per neighborhood.
 * Good vs bad reviews.
@@ -41,7 +38,32 @@ Our data was originally downloaded and saved as compressed CSV files.  After som
 * The data is subdivided into seperate seasonal datasets, which makes the interpretation difficult.
 
 
+#Exploratory analaysis of the Data
+
+We next undertook an exploratory analysis of the data in a visual manner. Since the main questions we seek to answer were related to Pricing, Listings and Reviews our visual
+exploration of the data seeked to see how these factors affect the neighbourhood. 
+
+Below gives a map view on where the top 10 neighbourhoods by listings are, as you can see there is a dispropotionate number of listings closer to the beach
+
+![](Resources/Listings by Neightbourhood.PNG)
 
 
+One thing that struck us from the data is that the priciest neighbourhood listings are not neccessarily the best rated as shown in the two figures below
+
+
+![](Resources/Highest Avg Price .PNG)
+
+
+
+![](Resources/Best Rated Neighbourhoods.PNG)
+
+
+This observation is also true for the converse of the above that the less average priced neighbourhood are not nessecarily the worst rated
+
+
+![](Resources/Lowest Average Price.PNG)
+
+
+![](Resources/Worst Rated.PNG)
 
     
