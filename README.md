@@ -51,7 +51,7 @@ Below gives a map view on where the top 10 neighbourhoods by listings are, as yo
 One thing that struck us from the data is that the priciest neighbourhood listings are not neccessarily the best rated as shown in the two figures below
 
 
-![My Image](Resources/Highest_Avg_Price.PNG)
+![My Image](Resources/Highest_Avg_Price .PNG)
 
 
 
