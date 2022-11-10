@@ -45,25 +45,31 @@ exploration of the data seeked to see how these factors affect the neighbourhood
 
 Below gives a map view on where the top 10 neighbourhoods by listings are, as you can see there is a dispropotionate number of listings closer to the beach
 
-![My Image](Resources/Listings by Neightbourhood.PNG)
+![My Image](Resources/Listings_Neightbourhood.PNG)
 
 
 One thing that struck us from the data is that the priciest neighbourhood listings are not neccessarily the best rated as shown in the two figures below
 
 
-![My Image](Resources/Highest Avg Price .PNG)
+![My Image](Resources/Highest_Avg_Price.PNG)
 
 
 
-![My Image](Resources/Best Rated Neighbourhoods.PNG)
+![My Image](Resources/Best_Rated_Neighbourhoods.PNG)
 
 
 This observation is also true for the converse of the above that the less average priced neighbourhood are not nessecarily the worst rated
 
 
-![My Image](Resources/Lowest Average Price.PNG)
+![My Image](Resources/Lowest_Average_Price.PNG)
 
 
-![My Image](Resources/Worst Rated.PNG)
+![My Image](Resources/Worst_Rated.PNG)
+
+Another thing we noted is the diversity of the property types available as shown below in the tree map, which means the city cater to all sorts of visitors like Business folks, Families , Couples and single individuals
+
+![My Image](Resources/PropertyTypes.PNG)
+
+
 
     
