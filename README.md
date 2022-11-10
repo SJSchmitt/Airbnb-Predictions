@@ -38,32 +38,32 @@ The dataset used for this project came from insideairbnb.com, a site consisting 
 * The data is subdivided into seperate seasonal datasets, which makes the interpretation difficult.
 
 
-#Exploratory analaysis of the Data
+# Exploratory analaysis of the Data
 
 We next undertook an exploratory analysis of the data in a visual manner. Since the main questions we seek to answer were related to Pricing, Listings and Reviews our visual
 exploration of the data seeked to see how these factors affect the neighbourhood. 
 
 Below gives a map view on where the top 10 neighbourhoods by listings are, as you can see there is a dispropotionate number of listings closer to the beach
 
-![](Resources/Listings by Neightbourhood.PNG)
+![My Image](Resources/Listings by Neightbourhood.PNG)
 
 
 One thing that struck us from the data is that the priciest neighbourhood listings are not neccessarily the best rated as shown in the two figures below
 
 
-![](Resources/Highest Avg Price .PNG)
+![My Image](Resources/Highest Avg Price .PNG)
 
 
 
-![](Resources/Best Rated Neighbourhoods.PNG)
+![My Image](Resources/Best Rated Neighbourhoods.PNG)
 
 
 This observation is also true for the converse of the above that the less average priced neighbourhood are not nessecarily the worst rated
 
 
-![](Resources/Lowest Average Price.PNG)
+![My Image](Resources/Lowest Average Price.PNG)
 
 
-![](Resources/Worst Rated.PNG)
+![My Image](Resources/Worst Rated.PNG)
 
     
