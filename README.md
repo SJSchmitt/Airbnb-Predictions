@@ -70,6 +70,10 @@ Another thing we noted is the diversity of the property types available as shown
 
 ![My Image](Resources/PropertyTypes.PNG)
 
+When we dive closer to the Percentages with regards to the type of rooms availabe,almost 80% of listings are eighter a home or an apartment which tells us that there are a number of individuals who list their own personal property on AirBnb then hotels (1%)
+
+![My Image](Resources/Percentage_Room_types.PNG)
+
 
 
     
