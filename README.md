@@ -51,7 +51,7 @@ Below gives a map view on where the top 10 neighbourhoods by listings are, as yo
 One thing that struck us from the data is that the priciest neighbourhood listings are not neccessarily the best rated as shown in the two figures below
 
 
-![My Image](Resources/Highest_Avg_Price .PNG)
+![My Image](Resources/Highest_Avg_Price.PNG)
 
 
 
@@ -66,7 +66,7 @@ This observation is also true for the converse of the above that the less averag
 
 ![My Image](Resources/Worst_Rated.PNG)
 
-Another thing we noted is the diversity of the property types available as shown below 
+Another thing we noted is the diversity of the property types available as shown below in the tree map, which means the city cater to all sorts of visitors like Business folks, Families , Couples and single individuals
 
 ![My Image](Resources/PropertyTypes.PNG)
 
