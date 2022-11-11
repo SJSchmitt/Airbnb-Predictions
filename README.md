@@ -33,22 +33,21 @@ The dataset used for this project came from insideairbnb.com, a site consisting 
 # Limitations on Data
 
 * Cleaning data is needed since the source has a lot of columns that contain text and boleans.
-* The columns for reviews have a dispropatianately number of "Nan" which would nessecitate us to calculate the mean and populate.
-* The price for which a customer pays is not included in the dataset, it only shows what the price was during listing.
+* The columns for reviews have a disproportionate number of "Nan" which would requires us to calculate the mean and populate.
+* The price an Airbnb sells for can be dynamic, and unfortunately the data only shows the listing price at the timne of scraping. This means we do not have data on the price the customer actually paid.
 * The data is subdivided into seperate seasonal datasets, which makes the interpretation difficult.
 
 
-# Exploratory analaysis of the Data
+# Exploratory Analysis of the Data
 
-We next undertook an exploratory analysis of the data in a visual manner. Since the main questions we seek to answer were related to Pricing, Listings and Reviews our visual
-exploration of the data seeked to see how these factors affect the neighbourhood. 
+We next undertook an exploratory analysis of the data in a visual manner. The main questions we seek to answer were related to pricing, listings, and reviews, so our visual exploration of the data was centered around showcasing how location, namely by neighborhood, can have an effect on the overall price. 
 
-Below gives a map view on where the top 10 neighbourhoods by listings are, as you can see there is a dispropotionate number of listings closer to the beach
+Below gives a map view on where the top 10 neighbourhoods by listings are. The vast majority of listings are located close to the beach
 
 ![My Image](Resources/Listings_Neightbourhood.PNG)
 
 
-One thing that struck us from the data is that the priciest neighbourhood listings are not neccessarily the best rated as shown in the two figures below
+One thing that struck us from the data is that the priciest neighbourhood listings are not neccessarily the best rated, as shown in the two figures below.
 
 
 ![My Image](Resources/Highest_Avg_Price.PNG)
@@ -58,7 +57,7 @@ One thing that struck us from the data is that the priciest neighbourhood listin
 ![My Image](Resources/Best_Rated_Neighbourhoods.PNG)
 
 
-This observation is also true for the converse of the above that the less average priced neighbourhood are not nessecarily the worst rated
+This observation is also true for the inverse of the data, as the cheapest neighborhoods are not necessarily the worst rated.
 
 
 ![My Image](Resources/Lowest_Average_Price.PNG)
@@ -66,11 +65,11 @@ This observation is also true for the converse of the above that the less averag
 
 ![My Image](Resources/Worst_Rated.PNG)
 
-Another thing we noted is the diversity of the property types available as shown below in the tree map, which means the city cater to all sorts of visitors like Business folks, Families , Couples and single individuals
+Another area of importance is the type of property, as shown in the tree map below. As you would expect, entire houses, apartments, and condos represent the highest percentage of overall units, but there are plenty of other options available (you can even rent an RV or bungalow).
 
 ![My Image](Resources/PropertyTypes.PNG)
 
-When we dive closer to the Percentages with regards to the type of rooms availabe,almost 80% of listings are eighter a home or an apartment which tells us that there are a number of individuals who list their own personal property on AirBnb then hotels (1%)
+When we dive closer to the percentages with regards to the type of rooms availabe, almost 80% of listings are either a home or an apartment which tells us that there are a number of individuals who list their own personal property on AirBnb.
 
 ![My Image](Resources/Percentage_Room_types.PNG)
 
