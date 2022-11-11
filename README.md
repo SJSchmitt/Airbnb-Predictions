@@ -38,7 +38,7 @@ The dataset used for this project came from insideairbnb.com, a site consisting 
 * The data is subdivided into seperate seasonal datasets, which makes the interpretation difficult.
 
 
-# Exploratory Analysis of the Data
+# Exploration of the Data
 
 We next undertook an exploratory analysis of the data in a visual manner. The main questions we seek to answer were related to pricing, listings, and reviews, so our visual exploration of the data was centered around showcasing how location, namely by neighborhood, can have an effect on the overall price. 
 
@@ -72,7 +72,6 @@ Another area of importance is the type of property, as shown in the tree map bel
 When we dive closer to the percentages with regards to the type of rooms availabe, almost 80% of listings are either a home or an apartment which tells us that there are a number of individuals who list their own personal property on AirBnb.
 
 ![My Image](Resources/Percentage_Room_types.PNG)
-
 
 
     
