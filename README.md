@@ -73,5 +73,9 @@ When we dive closer to the percentages with regards to the type of rooms availab
 
 ![My Image](Resources/Percentage_Room_types.PNG)
 
+Below is the link to the story board on Google Sides
+
+https://docs.google.com/presentation/d/15oewejHwX402getnFd6vY7tPsE8IjyhiXCyFo9Xzf2I/edit?usp=sharing
+
 
     
