@@ -73,6 +73,11 @@ When we dive closer to the percentages with regards to the type of rooms availab
 
 ![My Image](Resources/Percentage_Room_types.PNG)
 
+# Story Board
+
+Below is the link to the story board we created on google slides
+https://docs.google.com/presentation/d/15oewejHwX402getnFd6vY7tPsE8IjyhiXCyFo9Xzf2I/edit?usp=sharing
+
 # Database Integration
 
 Our data is stored in Postgres and we use functions to push csv data to SQL tables and access them in a pandas dataframe. This is demonstrated in the airbnb_toSQL and preprocessing files in the src and helpers folders. Tables for each season can be accessed by calling the preprocessing function and passing the season within the perentheses. We called it in our machine learning model to access the tables and create our features.
