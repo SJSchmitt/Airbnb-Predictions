@@ -33,17 +33,17 @@ The dataset used for this project came from insideairbnb.com, a site consisting 
 # Limitations on Data
 
 * Cleaning data is needed since the source has a lot of columns that contain text and boleans.
-* The columns for reviews have a dispropatianately number of "Nan" which would nessecitate us to calculate the mean and populate.
-* The price for which a customer pays is not included in the dataset, it only shows what the price was during listing.
+* The columns for reviews have a disproportionate number of "Nan" which would requires us to calculate the mean and populate.
+* The price an Airbnb sells for can be dynamic, and unfortunately the data only shows the listing price at the timne of scraping. This means we do not have data on the price the customer actually paid.
 * The data is subdivided into seperate seasonal datasets, which makes the interpretation difficult.
 
 
 # Exploratory analaysis of the Data
 
-We next undertook an exploratory analysis of the data in a visual manner. Since the main questions we seek to answer were related to Pricing, Listings and Reviews our visual
-exploration of the data seeked to see how these factors affect the neighbourhood. 
+We next undertook an exploratory analysis of the data in a visual manner. Since the main questions we seek to answer were related to pricing, listings and reviews our visual
+exploration of the data was center around showcasing how location, namely by neighborhood, can have an effect on the overall price. 
 
-Below gives a map view on where the top 10 neighbourhoods by listings are, as you can see there is a dispropotionate number of listings closer to the beach
+Below gives a map view on where the top 10 neighbourhoods by listings are. As you can see there is a dispropotionate number of listings closer to the beach
 
 ![My Image](Resources/Listings_Neightbourhood.PNG)
 
