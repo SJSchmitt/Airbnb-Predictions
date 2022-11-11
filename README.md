@@ -73,6 +73,10 @@ When we dive closer to the percentages with regards to the type of rooms availab
 
 ![My Image](Resources/Percentage_Room_types.PNG)
 
+As we dove deeper into the data and started integrating our database into the machine learning model, the main thing we wanted to visualize was the impact each column had on the overall result of the model. Below you will see the results:
+
+![My Image](Resources/Feature_Importance.png
+
 # Story Board
 
 Below is the link to the story board we created on google slides
