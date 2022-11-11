@@ -43,7 +43,7 @@ The dataset used for this project came from insideairbnb.com, a site consisting 
 We next undertook an exploratory analysis of the data in a visual manner. Since the main questions we seek to answer were related to pricing, listings and reviews our visual
 exploration of the data was center around showcasing how location, namely by neighborhood, can have an effect on the overall price. 
 
-Below gives a map view on where the top 10 neighbourhoods by listings are. As you can see there is a dispropotionate number of listings closer to the beach
+Below gives a map view on where the top 10 neighbourhoods by listings are. The vast majority of listings are located close to the beach
 
 ![My Image](Resources/Listings_Neightbourhood.PNG)
 
