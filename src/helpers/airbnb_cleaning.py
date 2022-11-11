@@ -9,9 +9,9 @@ def clean_df(file_path):
 
     # select columns we're interested in for ml model and dashboard
 
-    analysis_df = full_df[["price","neighbourhood_cleansed","room_type","accommodates","longitude","latitude","beds","bedrooms",
+    analysis_df = full_df[["id","price","neighbourhood_cleansed","room_type","accommodates","longitude","latitude","beds","bedrooms",
         "property_type","bathrooms_text","availability_90", "minimum_nights", "host_listings_count", "review_scores_rating", "review_scores_accuracy", "review_scores_cleanliness", 
-        "review_scores_checkin", "review_scores_communication", "review_scores_location", "review_scores_value", "license", "host_name"]]
+        "review_scores_checkin", "review_scores_communication", "review_scores_location", "review_scores_value", "license", "host_name", "listing_url"]]
 
     # process NaNs
 
@@ -56,6 +56,8 @@ def clean_df(file_path):
 
     analysis_df['price'] = analysis_df['price'].str.replace(',', '').astype(float)
 
+    # drop listings where price is >= 9999
+    analysis_df = analysis_df[analysis_df.price <= 9998]
 
     # convert bathrooms_text to float
 

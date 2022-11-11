@@ -38,7 +38,7 @@ The dataset used for this project came from insideairbnb.com, a site consisting 
 * The data is subdivided into seperate seasonal datasets, which makes the interpretation difficult.
 
 
-# Exploratory Analysis of the Data
+# Exploration of the Data
 
 We next undertook an exploratory analysis of the data in a visual manner. The main questions we seek to answer were related to pricing, listings, and reviews, so our visual exploration of the data was centered around showcasing how location, namely by neighborhood, can have an effect on the overall price. 
 
@@ -73,6 +73,20 @@ When we dive closer to the percentages with regards to the type of rooms availab
 
 ![My Image](Resources/Percentage_Room_types.PNG)
 
+As we dove deeper into the data and started integrating our database into the machine learning model, the main thing we wanted to visualize was the impact each column had on the overall result of the model. Below you will see the results:
+
+![My Image](Resources/Feature_Importances.png)
+
+# Story Board
+
+Below is the link to the story board we created on google slides
+https://docs.google.com/presentation/d/15oewejHwX402getnFd6vY7tPsE8IjyhiXCyFo9Xzf2I/edit?usp=sharing
+
+# Database Integration
+
+Our data was originally downloaded as CSVs, but after cleaning the data we integrated a PostgreSQL database for ease of access and exploration.  For each season, we create two tables: one to hold the data our machine learning models use, following the naming convention 'airbnb\_{season}\_ml', and one to contain additional data for further visualizations and analysis, following the convention 'airbnb\_{season}\_analysis'.  These tables are linked simply by an ID column, as shown in the following ERD:
+
+![Entity relation diagram for the ML and Analysis tables used](Resources/ERD.PNG)
 
 
     
