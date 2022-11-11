@@ -84,8 +84,9 @@ https://docs.google.com/presentation/d/15oewejHwX402getnFd6vY7tPsE8IjyhiXCyFo9Xz
 
 # Database Integration
 
-Our data is stored in Postgres and we use functions to push csv data to SQL tables and access them in a pandas dataframe. This is demonstrated in the airbnb_toSQL and preprocessing files in the src and helpers folders. Tables for each season can be accessed by calling the preprocessing function and passing the season within the perentheses. We called it in our machine learning model to access the tables and create our features.
+Our data was originally downloaded as CSVs, but after cleaning the data we integrated a PostgreSQL database for ease of access and exploration.  For each season, we create two tables: one to hold the data our machine learning models use, following the naming convention 'airbnb\_{season}\_ml', and one to contain additional data for further visualizations and analysis, following the convention 'airbnb\_{season}\_analysis'.  These tables are linked simply by an ID column, as shown in the following ERD:
 
+![Entity relation diagram for the ML and Analysis tables used](Resources/ERD.PNG)
 
 
     
