@@ -1,0 +1,45 @@
+html,
+body{
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  background-color: #f0fdfd;
+}
+
+.jumbotron {
+  background-image: linear-gradient(rgba(0,0,0,.4),rgba(0,0,0,.4)), url("../resources/SanDiegoHeader.png");
+  background-size: 100% 100%;
+  text-align: center;
+  color: #fff;
+  width: 100%;
+}
+
+#map-header {
+  background-color: #03045e;
+  color: #fff;
+  margin-bottom: 0px;
+}
+
+#mapid {
+  height: 500px;
+}
+
+.legend {
+  padding: 10px;
+  line-height: 18px;
+  color: #555;
+  background-color: #fff;
+  border-radius: 5px;
+}
+.legend i {
+  width: 18px;
+  height: 18px;
+  float: left;
+  margin-right: 8px;
+  opacity: 0.7;
+}
+
+#map-desc {
+  text-align: justify;
+}
