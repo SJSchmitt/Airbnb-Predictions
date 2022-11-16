@@ -10,21 +10,23 @@ def preprocessing(season):
     
     table_name = f'airbnb_{season}_ml'
     ml_df = pd.read_sql_table(table_name, con=engine)
-    ml_df = ml_df.drop('index', axis=1)
+
+    # drop ID column
+    ml_df=ml_df.drop('id', axis=1)
     
     # price is target (y), everything else is independent (X)
     X = ml_df.drop('price', axis = 1)
     y = ml_df['price']
 
     # drop beds and bedrooms, as they have high colinearity with accommodates
-    X = X.drop(['beds', 'bedrooms'], axis = 1)
+    #X = X.drop(['beds', 'bedrooms'], axis = 1)
 
     # neighbourhoods_cleansed has too many unique values (103 in fall), but binning is difficult
     # if we bin all neighbourhoods with <100 units as 'Other', we still have 37 unique values and the 'other' group
     # has over 2000 of our units (the next highest has 1975, then 953)
     # I worry that if we group them too much, it defeats the meaning of having a neighbourhood column
     # since we have lat and long data, I think we should use that instead and drop neighbourhood_cleansed - Sam
-    X = X.drop('neighbourhood_cleansed', axis=1)
+    #X = X.drop('neighbourhood_cleansed', axis=1)
 
     # four room_types, so no need to bin those
 
