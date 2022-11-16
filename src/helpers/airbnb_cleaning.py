@@ -15,9 +15,9 @@ def clean_df(file_path):
 
     # process NaNs
 
-    # drop nan beds and bathrooms_text
+    # drop nan bathrooms_text
 
-    analysis_df.dropna(subset = ['beds', 'bathrooms_text'], inplace = True)
+    analysis_df.dropna(subset = ['bathrooms_text'], inplace = True)
 
 
     # replace NaNs with values based on columns.  Average ratings for review_scores to 2 dec places,
@@ -42,8 +42,6 @@ def clean_df(file_path):
               "review_scores_location": round(analysis_df['review_scores_location'].mean(), 2),
 
               "review_scores_value": round(analysis_df['review_scores_value'].mean(), 2),
-
-              "bedrooms": analysis_df.loc[full_df['bedrooms'].isna()]['beds'],
 
               "license": "No License"}
 
