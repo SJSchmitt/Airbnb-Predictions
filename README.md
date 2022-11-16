@@ -14,9 +14,44 @@ Our project aims to identify key variables in Airbnb data and use our machine le
  
 Our primary communication is in class on Tuesdays and Thursdays and on slack throughout the week.
 
-# Data Source
+# Our Data
 
-The dataset used for this project came from insideairbnb.com, a site consisting of a group of collaborators who scrub Airbnb listings, neighborhoods, and reviews from cities all over the world. For the purposes of this project, we are using quarterly data from the last 12 months to provide a complete overview of the city across an entire year. The data we gathered puts the number of Airbnbs currently listed on the platform at about 14,000.
+The dataset used for this project came from insideairbnb.com, a site consisting of a group of collaborators who scrub Airbnb listings, neighborhoods, and reviews from cities all over the world. For the purposes of this project, we are using quarterly data from the last 12 months to provide a complete overview of the city across an entire year. The data we gathered puts the number of San Diego Airbnbs currently listed on the platform at about 14,000.
+
+## Feature Selection
+Our initial dataset had 75 columns, which we limited to 17 in order to have more legible models and results.  We began by dropping columns that wouldn't contribute meaningfully to a machine learning model, such as listing_url, host_picture_url, and last_scraped.  Then we looked for columns that suggested high colinearity, like the beds, bedrooms, and accommodates columns, or bathrooms and bathrooms_text.  In these cases, we kept the columns that we thought would influence our own rental decisions most and the ones that were formatted the best.  We also left out a few columns that, while likely useful, would be too much to process within our timeline, such as the description and ammenities columns.
+
+## Additional Preprocessing
+In addition to selecting features to use, we also had to process text, fill null values, bin diverse columns, and evaluate outliers. Out of our >14,000 listings, 75 had a price higher than $9,998, and upon looking more closely at those listings, we determined that at least a majority of those instances were unrealistic prices for the properties, so we simply dropped those rows.  We also dropped rows where the bathrooms_text column was empty, as there were only a few such values.  Most of our null values came in the review columns, far too many to drop, so we filled those with the mean value for their categories.  For the host_name and license columns, which we have used for analysis but not in our machine learning models, we simply filled in "No Host Listed" or "No License."
+
+The only column we had to bin was the property_type column, which originally had far too many unique values with only one item in that category.  We divided the category as follows: 
+``` python
+for prop in X.property_type:
+        # replace property types containing 'Shared' with 'Shared room' to condense like values
+        # no property_types contain the word 'Shared' if they aren't a shared room, specifically
+        if "Shared" in prop:
+            new_properties.append('Shared room')
+        # same for private, no types contain 'Private' if not a private room in a different situation
+        elif ("Private" in prop) or ("Room in" in prop):
+            new_properties.append('Private room')
+        elif "Entire" in prop:
+            # entire units in a larger building/complex
+            if ("condo" in prop) or ("rental unit" in prop) or ("guest suite" in prop) or ("loft" in prop) or ("apartment" in prop):
+                new_properties.append('Entire Unit')
+            # entire buildings, may or may not be on shared property (ie a guest house)
+            else:
+                new_properties.append('Entire Home')
+        elif prop == "Tiny home":
+            new_properties.append('Entire Home')
+        elif ("Camper" in prop) or ("RV" in prop):
+            new_properties.append('Camper/RV')
+        else: 
+            new_properties.append('Other')
+    # overwrite property_type column with condensed list
+    X['property_type'] = new_properties
+```
+After all columns were cleaned appropriately, we used Pandas `getDummies` function on the room_type and property_type columns.  Then we took the log10 of the price/y column and applied Sci Kit Learn's `standardScaler` function to scale our data.
+
 
 # What should listing price be for new rentals in San Diego?
 
