@@ -28,7 +28,8 @@ def preprocessing(season):
     # since we have lat and long data, I think we should use that instead and drop neighbourhood_cleansed - Sam
     #X = X.drop('neighbourhood_cleansed', axis=1)
 
-    # four room_types, so no need to bin those
+    # drop room_types, it's just less specific than property_type
+    X = X.drop('room_type', axis=1)
 
     # 78 property_types
     # create a new list for renamed properties
@@ -59,7 +60,7 @@ def preprocessing(season):
     X['property_type'] = new_properties
 
     # convert categorical room_type and property_type to dummy columns
-    X = pd.get_dummies(X, columns = ['room_type', 'property_type'], prefix = ['room', 'property'])
+    X = pd.get_dummies(X, columns = ['property_type'], prefix = ['property'])
     
     # return X and y
     return X, y
