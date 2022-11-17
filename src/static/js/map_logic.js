@@ -58,7 +58,7 @@ L.control.layers(features, Overlays).addTo(map);
 
 
 // get neighborhood data
-d3.json("https://raw.githubusercontent.com/SJSchmitt/airbnb_test/main/static/resources/neighbourhoods.geojson").then(function(data) {
+d3.json("https://raw.githubusercontent.com/csedatole/Airbnb-Predictions/main/src/static/resources/neighbourhoods.geojson").then(function(data) {
 	L.geoJSON(data, {
 		color: "#ffa812",
 		fillOpacity: 0.2,
@@ -68,7 +68,7 @@ d3.json("https://raw.githubusercontent.com/SJSchmitt/airbnb_test/main/static/res
 });
 
 // get rental data
-d3.csv("https://raw.githubusercontent.com/SJSchmitt/airbnb_test/main/static/resources/airbnb_fall_full.csv", (data) => {
+d3.csv("https://raw.githubusercontent.com/csedatole/Airbnb-Predictions/main/src/static/resources/airbnb_fall_full.csv", (data) => {
 	
 	function getOpacity(price) {
 		if (price > 2999){
@@ -134,7 +134,7 @@ d3.csv("https://raw.githubusercontent.com/SJSchmitt/airbnb_test/main/static/reso
 	airbnb_full.addTo(map);
 });
 
-d3.csv("https://raw.githubusercontent.com/SJSchmitt/airbnb_test/main/static/resources/airbnb_fall_full.csv", (data) => {
+d3.csv("https://raw.githubusercontent.com/csedatole/Airbnb-Predictions/main/src/static/resources/airbnb_fall_full.csv", (data) => {
 
 	function getColor(acc) {
 		if (acc > 12){
@@ -200,7 +200,7 @@ d3.csv("https://raw.githubusercontent.com/SJSchmitt/airbnb_test/main/static/reso
 	accommodates.addTo(map);
 });
 
-d3.csv("https://raw.githubusercontent.com/SJSchmitt/airbnb_test/main/static/resources/airbnb_fall_full.csv", (data) => {
+d3.csv("https://raw.githubusercontent.com/csedatole/Airbnb-Predictions/main/src/static/resources/airbnb_fall_full.csv", (data) => {
 	
 	function getColor(host) {
 		if (host > 50){
