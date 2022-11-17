@@ -112,10 +112,10 @@ As we dove deeper into the data and started integrating our database into the ma
 
 ![My Image](Resources/Feature_Importance_2.PNG)
 
-# Story Board
+# Presentation
 
-Below is the link to the story board we created on google slides
-https://docs.google.com/presentation/d/15oewejHwX402getnFd6vY7tPsE8IjyhiXCyFo9Xzf2I/edit?usp=sharing
+Below is the link to our official presentation highlighting many of the key points discussed here.
+https://docs.google.com/presentation/d/1ggHflLDBYHeiCQa0N4UY2IH-NEi1VbGGr2V1CiAfn4Y/edit?usp=sharing
 
 # Database Integration
 
