@@ -19,7 +19,7 @@ Our primary communication is in class on Tuesdays and Thursdays and on slack thr
 The dataset used for this project came from insideairbnb.com, a site consisting of a group of collaborators who scrub Airbnb listings, neighborhoods, and reviews from cities all over the world. For the purposes of this project, we are using quarterly data from the last 12 months to provide a complete overview of the city across an entire year. The data we gathered puts the number of San Diego Airbnbs currently listed on the platform at about 14,000.
 
 ## Feature Selection
-Our initial dataset had 75 columns, which we limited to 17 in order to have more legible models and results.  We began by dropping columns that wouldn't contribute meaningfully to a machine learning model, such as listing_url, host_picture_url, and last_scraped.  Then we looked for columns that suggested high colinearity, like the beds, bedrooms, and accommodates columns, or bathrooms and bathrooms_text.  In these cases, we kept the columns that we thought would influence our own rental decisions most and the ones that were formatted the best.  We also left out a few columns that, while likely useful, would be too much to process within our timeline, such as the description and ammenities columns.
+Our initial dataset had 75 columns, which we limited to 17 in order to have more legible models and results.  We began by dropping columns that wouldn't contribute meaningfully to a machine learning model, such as listing_url, host_picture_url, and last_scraped.  Then we looked for columns that suggested high colinearity, like the beds, bedrooms, and accommodates columns, or bathrooms and bathrooms_text.  In these cases, we kept the columns that we thought would influence our own rental decisions most and the ones that were formatted the best.  We also left out a few columns that, while likely useful, would be too much to process within our timeline, such as the description and amenities columns.
 
 ## Additional Preprocessing
 In addition to selecting features to use, we also had to process text, fill null values, bin diverse columns, and evaluate outliers. Out of our >14,000 listings, 75 had a price higher than $9,998, and upon looking more closely at those listings, we determined that at least a majority of those instances were unrealistic prices for the properties, so we simply dropped those rows.  We also dropped rows where the bathrooms_text column was empty, as there were only a few such values.  Most of our null values came in the review columns, far too many to drop, so we filled those with the mean value for their categories.  For the host_name and license columns, which we have used for analysis but not in our machine learning models, we simply filled in "No Host Listed" or "No License."
@@ -50,7 +50,7 @@ for prop in X.property_type:
     # overwrite property_type column with condensed list
     X['property_type'] = new_properties
 ```
-After all columns were cleaned appropriately, we used Pandas `getDummies` function on the room_type and property_type columns.  Then we took the log10 of the price/y column and applied Sci Kit Learn's `standardScaler` function to scale our data.
+After all columns were cleaned appropriately, we used Pandas `getDummies` function on the property_type column.  Then we took the log10 of the price/y column and applied Sci Kit Learn's `standardScaler` function to scale our data.  We used SKLearn's train_test_split function to divide our data with a standard 75%//25% split, leaving us with 10,851 training values and 3,528 testing values
 
 
 # What should listing price be for new rentals in San Diego?
@@ -110,7 +110,7 @@ When we dive closer to the percentages with regards to the type of rooms availab
 
 As we dove deeper into the data and started integrating our database into the machine learning model, the main thing we wanted to visualize was the impact each column had on the overall result of the model. Below you will see the results:
 
-![My Image](Resources/Feature_Importances.png)
+![My Image](Resources/Feature_Importance.png)
 
 # Story Board
 
@@ -123,5 +123,69 @@ Our data was originally downloaded as CSVs, but after cleaning the data we integ
 
 ![Entity relation diagram for the ML and Analysis tables used](Resources/ERD.PNG)
 
+# Machine Learning
+We used two machine learning models to attempt to predict housing prices from the data at hand.  The first and more successful attempt was an [XGBoost model](https://xgboost.readthedocs.io/en/latest/index.html), and the second was a deep neural network using [Tensorflow's Keras library](https://www.tensorflow.org/api_docs/python/tf/keras).  After an initial trial, the XGBoost model showed significantly better results than the neural network, so that's where we focused most of our efforts.
+
+## XGBoost
+XGBoost stands for Extreme Gradient Boosting, and per the official documentation is a 'optimized distributed gradient boosting library designed to be highly efficient, flexible and portable.'  Boosting is a supervised ensemble learning technique, in which many weak learners are combined to create a stronger learner.  This technique also helps manage the [bias-variance tradeoff](https://en.wikipedia.org/wiki/Bias%E2%80%93variance_tradeoff), which is a common concern with supervised learning models.
+
+After our initial simple model, we incorporated XGBoost's `GridSearchCV` function to find the best estimator, as shown here:
+``` Python
+xgb1 = xgb.XGBRegressor()
+parameters = {'nthread':[4], #when use hyperthread, xgboost may become slower
+              'objective':['reg:linear'],
+              'learning_rate': [.03, 0.05, .07], #so called `eta` value
+              'max_depth': [5, 6, 7],
+              'min_child_weight': [4],
+              'silent': [1],
+              'subsample': [0.7],
+              'colsample_bytree': [0.7],
+              'n_estimators': [500]}
+
+xgb_grid = GridSearchCV(xgb1,
+                        parameters,
+                        cv = 2,
+                        n_jobs = 5,
+                        verbose=True)
+
+xgb_grid.fit(X_train, y_train)
+```
+
+This model yields slightly different results with each iteration, but the differences are small enough to ignore.  To test the success of our models, we examine the mean absolute error and the r^2 values for both the training data and the testing data.  An example of that output is as follows:
+
+![accuracy metrics for our XGBoost model](Resources/xgb_metrics.PNG)
+
+The r^2 metric is better than expected with the limitations of our data - especially without including any amenities information - but the Mean Absolute Error (MAE) is high enough to make this model unreliable.  The average listing price in our fall data is around $285, so a MAE of around $200 is problematic.  Our highest listing price is $5000 while our 75th percentile falls at $325, so removing those higher price listings could increase our accuracy, but we do not have time to adequately assess those higher listings and see which are valid and which would be fair to drop.
+
+## Neural Network
+Our neural network was compiled with the following parameters:
+
+``` Python
+# Define the model - deep neural net, i.e., the number of input features and hidden nodes for each layer.
+number_input_features = X_train_scaled.shape[1]
+hidden_nodes_layer1 = 60
+hidden_nodes_layer2 = 180
+hidden_nodes_layer3 = 180
+
+nn = tf.keras.models.Sequential()
+
+# First hidden layer
+nn.add(tf.keras.layers.Dense(units=hidden_nodes_layer1, input_dim=number_input_features, activation="relu"))
+
+# Second hidden layer
+nn.add(tf.keras.layers.Dense(units=hidden_nodes_layer2, activation="relu"))
+
+nn.add(tf.keras.layers.Dense(units=hidden_nodes_layer3, activation="relu"))
+
+# Output layer
+nn.add(tf.keras.layers.Dense(units=1, activation="linear"))
+
+# Check the structure of the model
+nn.summary()
+```
+
+which we trained over 100 epochs.  Though given the same data as the XGBoost model the neural network showed significantly lower initial results (pictured below), so we've done little to develop it.  
+    
+![neural network metrics](Resources/nn_metrics.PNG)
 
     
