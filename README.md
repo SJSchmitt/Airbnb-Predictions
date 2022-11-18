@@ -10,10 +10,6 @@ Pricing is important, especially as decline has decreased over the past couple o
 
 Our project aims to identify key variables in Airbnb data and use our machine learning model to predict, as accurately as we can, the daily rent price a property should be listed at in San Diego.
 
-# Team Dynamics
- 
-Our primary communication is in class on Tuesdays and Thursdays and on slack throughout the week.
-
 # Our Data
 
 The dataset used for this project came from insideairbnb.com, a site consisting of a group of collaborators who scrub Airbnb listings, neighborhoods, and reviews from cities all over the world. For the purposes of this project, we are using quarterly data from the last 12 months to provide a complete overview of the city across an entire year. The data we gathered puts the number of San Diego Airbnbs currently listed on the platform at about 14,000.
