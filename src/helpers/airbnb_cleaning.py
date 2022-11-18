@@ -55,7 +55,7 @@ def clean_df(file_path):
     analysis_df['price'] = analysis_df['price'].str.replace(',', '').astype(float)
 
     # drop listings where price is >= 9999
-    analysis_df = analysis_df[analysis_df.price <= 9998]
+    analysis_df = analysis_df[analysis_df.price <= 999]
 
     # convert bathrooms_text to float
 

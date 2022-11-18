@@ -58,7 +58,7 @@ L.control.layers(features, Overlays).addTo(map);
 
 
 // get neighborhood data
-d3.json("https://raw.githubusercontent.com/SJSchmitt/airbnb_test/main/static/resources/neighbourhoods.geojson").then(function(data) {
+d3.json("https://raw.githubusercontent.com/csedatole/Airbnb-Predictions/main/src/static/resources/neighbourhoods.geojson").then(function(data) {
 	L.geoJSON(data, {
 		color: "#ffa812",
 		fillOpacity: 0.2,
@@ -68,9 +68,9 @@ d3.json("https://raw.githubusercontent.com/SJSchmitt/airbnb_test/main/static/res
 });
 
 // get rental data
-d3.csv("https://raw.githubusercontent.com/SJSchmitt/airbnb_test/main/static/resources/airbnb_fall_full.csv", (data) => {
+d3.csv("https://raw.githubusercontent.com/csedatole/Airbnb-Predictions/main/src/static/resources/airbnb_fall_full.csv", (data) => {
 	
-	function getOpacity(price) {
+	function priceOpacity(price) {
 		if (price > 2999){
 			return 1;
 		}
@@ -92,7 +92,7 @@ d3.csv("https://raw.githubusercontent.com/SJSchmitt/airbnb_test/main/static/reso
 		return 0.4;
 	}
 
-	function getColor(price) {
+	function priceColor(price) {
 		if (price > 2999){
 			return '#03045e';
 		}
@@ -114,16 +114,16 @@ d3.csv("https://raw.githubusercontent.com/SJSchmitt/airbnb_test/main/static/reso
 		return '#90e0ef';
 	}
 
-	function getRadius(price) {
+	function priceRadius(price) {
 		if (price > 0){
 			return (0.5* Math.log10(price)**2);
 		};
 	}
 
 	L.circleMarker([data.latitude, data.longitude],{
-		radius: getRadius(data.price),
-		color: getColor(data.price),
-		fillOpacity: getOpacity(data.price),
+		radius: priceRadius(data.price),
+		color: priceColor(data.price),
+		fillOpacity: priceOpacity(data.price),
 		weight: 1
 	}).bindPopup("ID: " + "<a href=" + data.listing_url + ">" + data.id + "</a>" +
 		"<br>Host: " + data.host_name + 
@@ -132,11 +132,8 @@ d3.csv("https://raw.githubusercontent.com/SJSchmitt/airbnb_test/main/static/reso
 	
 	// Then we add the earthquake layer to our map.
 	airbnb_full.addTo(map);
-});
 
-d3.csv("https://raw.githubusercontent.com/SJSchmitt/airbnb_test/main/static/resources/airbnb_fall_full.csv", (data) => {
-
-	function getColor(acc) {
+	function accColor(acc) {
 		if (acc > 12){
 			return "#03045e";
 		}
@@ -158,7 +155,7 @@ d3.csv("https://raw.githubusercontent.com/SJSchmitt/airbnb_test/main/static/reso
 		return "#90e0ef";
 	}
 
-	function getOpacity(acc) {
+	function accOpacity(acc) {
 		if (acc > 12){
 			return 0.9;
 		}
@@ -180,16 +177,16 @@ d3.csv("https://raw.githubusercontent.com/SJSchmitt/airbnb_test/main/static/reso
 		return 0.3;
 	}
 
-	function getRadius(acc) {
+	function accRadius(acc) {
 		if (acc > 0){
 			return (0.5* acc);
 		};
 	}
 
 	L.circleMarker([data.latitude, data.longitude],{
-		radius: getRadius(data.accommodates),
-		color: getColor(data.accommodates),
-		fillOpacity: getOpacity(data.accommodates),
+		radius: accRadius(data.accommodates),
+		color: accColor(data.accommodates),
+		fillOpacity: accOpacity(data.accommodates),
 		weight: 1
 	}).bindPopup("ID: " + "<a href=" + data.listing_url + ">" + data.id + "</a>" +
 		"<br>Host: " + data.host_name + 
@@ -198,11 +195,8 @@ d3.csv("https://raw.githubusercontent.com/SJSchmitt/airbnb_test/main/static/reso
 	
 	// Then we add the earthquake layer to our map.
 	accommodates.addTo(map);
-});
 
-d3.csv("https://raw.githubusercontent.com/SJSchmitt/airbnb_test/main/static/resources/airbnb_fall_full.csv", (data) => {
-	
-	function getColor(host) {
+	function hostColor(host) {
 		if (host > 50){
 			return "#03045e";
 		}
@@ -224,15 +218,15 @@ d3.csv("https://raw.githubusercontent.com/SJSchmitt/airbnb_test/main/static/reso
 		return "#90e0ef";
 	}
 
-	function getRadius(host) {
+	function hostRadius(host) {
 		if (host > 0){
 			return 3;
 		};
 	}
 
 	L.circleMarker([data.latitude, data.longitude],{
-		radius: getRadius(data.host_listings_count),
-		color: getColor(data.host_listings_count),
+		radius: hostRadius(data.host_listings_count),
+		color: hostColor(data.host_listings_count),
 		fillOpacity: 0.7,
 		weight: 1
 	}).bindPopup("ID: " + "<a href=" + data.listing_url + ">" + data.id + "</a>" +
@@ -267,7 +261,6 @@ priceLegend.onAdd = function() {
 // Looping through our intervals to generate a label with a colored square for each interval.
 	div.innerHTML += "<i>Price</i><br>"
 	for (var i = 0; i < prices.length; i++) {
-  		console.log(colors[i]);
   		div.innerHTML +=
 			"<i style='background: " + colors[i] + "'></i> $" +
 		prices[i] + (prices[i + 1] ? "&ndash;$" + prices[i + 1] + "<br>" : "+");
