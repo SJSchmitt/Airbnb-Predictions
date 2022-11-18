@@ -151,7 +151,7 @@ This model yields slightly different results with each iteration, but the differ
 
 ![accuracy metrics for our XGBoost model](Resources/xgb_metrics.PNG)
 
-The r^2 metric is better than expected with the limitations of our data - especially without including any amenities information - but the Mean Absolute Error (MAE) is high enough to make this model unreliable.  The average listing price in our fall data is around $285, so a MAE of around $200 is problematic.  Our highest listing price is $5000 while our 75th percentile falls at $325, so removing those higher price listings could increase our accuracy, but we do not have time to adequately assess those higher listings and see which are valid and which would be fair to drop.
+The r^2 metric is better than expected with the limitations of our data - especially without including any amenities information - but the Mean Absolute Error (MAE) is high enough to make this model questionable.  Our average rental price is around $239, so a mean absolute error of $100 is high, but one can understand how better amenities and pictures could make that sort of difference.
 
 ## Neural Network
 Our neural network was compiled with the following parameters:
