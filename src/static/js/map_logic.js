@@ -51,10 +51,10 @@ let features = {
 let Overlays = {
 	"Neighborhoods": neighborhoods
 }; 
-// Then we add a control to the map that will allow the user to change which
-// layers are visible.
-L.control.layers(baseMaps).addTo(map);
-L.control.layers(features, Overlays).addTo(map);
+// // Then we add a control to the map that will allow the user to change which
+// // layers are visible.
+// L.control.layers(baseMaps).addTo(map);
+// L.control.layers(features, Overlays, {collapsed: false}).addTo(map);
 
 
 // get neighborhood data
@@ -128,7 +128,7 @@ d3.csv("https://raw.githubusercontent.com/csedatole/Airbnb-Predictions/main/src/
 	}).bindPopup("ID: " + "<a href=" + data.listing_url + ">" + data.id + "</a>" +
 		"<br>Host: " + data.host_name + 
 		"<br>Price: $" + data.price + 
-		"<br>Coords: " + data.latitude + ", " + data.longitude).addTo(airbnb_full);
+		"<br>Guests: " + data.accommodates).addTo(airbnb_full);
 	
 	// Then we add the earthquake layer to our map.
 	airbnb_full.addTo(map);
@@ -191,7 +191,7 @@ d3.csv("https://raw.githubusercontent.com/csedatole/Airbnb-Predictions/main/src/
 	}).bindPopup("ID: " + "<a href=" + data.listing_url + ">" + data.id + "</a>" +
 		"<br>Host: " + data.host_name + 
 		"<br>Price: $" + data.price + 
-		"<br>Coords: " + data.latitude + ", " + data.longitude).addTo(accommodates);
+		"<br>Guests: " + data.accommodates).addTo(accommodates);
 	
 	// Then we add the earthquake layer to our map.
 	accommodates.addTo(map);
@@ -232,7 +232,7 @@ d3.csv("https://raw.githubusercontent.com/csedatole/Airbnb-Predictions/main/src/
 	}).bindPopup("ID: " + "<a href=" + data.listing_url + ">" + data.id + "</a>" +
 		"<br>Host: " + data.host_name + 
 		"<br>Price: $" + data.price + 
-		"<br>Coords: " + data.latitude + ", " + data.longitude).addTo(host);
+		"<br>Guests: " + data.accommodates).addTo(host);
 	
 	// Then we add the earthquake layer to our map.
 	host.addTo(map);
@@ -269,7 +269,7 @@ priceLegend.onAdd = function() {
 };
   
 // Finally, we our legend to the map.
-// priceLegend.addTo(map);
+//priceLegend.addTo(map);
 
 let accLegend = L.control({
 	position: "bottomright"
@@ -333,6 +333,11 @@ hostLegend.onAdd = function() {
 	return div;
 };
 // hostLegend.addTo(map);
+
+// Then we add a control to the map that will allow the user to change which
+// layers are visible.
+L.control.layers(features, Overlays, {collapsed: false}).addTo(map);
+L.control.layers(baseMaps).addTo(map);
 
 map.on('baselayerchange', setLegend);
 
