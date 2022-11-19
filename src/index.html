@@ -21,12 +21,25 @@
         <div class="row">
         <div class="jumbotron text-center bg-image">
             <h1>San Diego AirBNBs</h1>
-            <p>Use the interactive charts below to explore the dataset</p>
         </div>
         </div>
 
-        <!-- map row -->
         <div class="row">
+            <p id="intro">Airbnb is a housing platform used by people around the world, be it home-owners, renters, or customers looking for living accomodations. 
+                The platform has been in the news a lot recently regarding their pricing and whether or not it is sustainable long-term. 
+                Airbnb expects hosts to set their own prices, and there are not many (if any) free services that provide accurate pricing for people looking to 
+                rent out their place. <br><br>
+
+                Pricing is important, especially as decline has decreased over the past couple of years due to COVID and other risk factors preventing people from 
+                vacationing. People looking to put their property on the site need to be carfeful what price they set. Too low means not maximising earning potential, 
+                and too high means people are less likely to book. <br><br>
+                
+                Our project aims to identify key variables in Airbnb data and use our machine learning model to predict, as accurately as we can, 
+                the daily rent price a property should be listed at in San Diego.</p>
+        </div>
+
+        <!-- map row -->
+        <div class="row row-1">
             <div class="col-md-8" id="map-box">
                 <div class="panel" id="map-header">
                     <div class="panel-heading">
@@ -36,47 +49,59 @@
                 <div id="mapid"></div>
             </div>
             <div class="col-md-4" id="map-desc">
-                <p>Brief intro</p>
+                <p>This map shows the locations of over 14,000 AirBNBs in the San Diego area.  Use the provided filters to visualize different details 
+                    about these listings.  Each bubble can be clicked on for more information, including a link to the listing page.
+                </p>
                 <h4>By Price</h4>
-                <p>Description of price metrics</p>
+                <p>This filter scales the color and shape based on the listing price of the AirBNB, which range from $10 to $999.  </p>
                 <h4>By Guests</h4>
-                <p>Number of guests accommodated</p>
+                <p>Similar to price, this filter scales the color and shape based on the number of guests accommodated.</p>
                 <h4>By Host Listings</h4>
-                <p>By number of listings the host has</p>
+                <p>This filter scales the color based on how many properties the host has listed, but does not scale the size.  This is because one 
+                    host ists over 2,500 properties, while the 75th percentile for listings falls at 17, so the size scaling wasn't particularly 
+                    informative.
+                </p>
             </div>
         </div>
 
         <!--next chart row -->
-        <div class="row">
+        <div class="row row-2">
+        <div class="col-md-3"></div>
         <div class="col-md-6">
-            <!-- <h3>Price vs Accomodations</h3>
-            <p class="desc-bar"></p>
-            <img src="/Resources/price_accomodation.png"> -->
+            <h3>Price vs Guests</h3>
             <div class='tableauPlaceholder' id='viz1668742107188' style='position: relative'><noscript><a href='#'><img alt='price_ranges ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ai&#47;AirbnbHousing&#47;price_ranges&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='AirbnbHousing&#47;price_ranges' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ai&#47;AirbnbHousing&#47;price_ranges&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1668742107188');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+            <p class="chart-desc">The image above shows the distribution of listing prices.  We did eventually make the decision to work only 
+                with prices less than $1000, so our model could more accurately suite the average guests needs, but most AirBNBs fell in that 
+                range anyways.  After narrowing our dataset our mean listing price was $239.19 and the median price was $180.00.
+            </p>
         </div>
+        <div class="col-md-3"></div>
+        </div>
+
+        <div class="row row-1">
+        <div class="col-md-3"></div>
         <div class="col-md-6">
-            <!-- <h3>Price Range</h3>
-            <p class="desc-gauge"></p>
+            <h3>Price Range</h3>
+            <!-- <p class="desc-gauge"></p>
             <img src="/Resources/price_ranges.png"> -->
             <div class='tableauPlaceholder' id='viz1668742421251' style='position: relative'><noscript><a href='#'><img alt='price vs accomodation ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ai&#47;AirbnbHousing&#47;pricevsaccomodation&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='AirbnbHousing&#47;pricevsaccomodation' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ai&#47;AirbnbHousing&#47;pricevsaccomodation&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1668742421251');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+            <p class="chart-desc">This chart shows the average listing price per night by the number of people a listing accommodates.  This relationship
+                is considerably linear, which makes sense given that the number of guests accommodated was the most important feature in our XGBoost model.
+            </p>
         </div>
+        <div class="col-md-3"></div>
         </div>
         
-        <!-- next chart row-->
-        <div class="row">
-            <div class="col-md-6">
-                <h3>Chart 3</h3>
-                <div id="chart-3"></div>
-                <p class="desc">description 3</p>
-            </div>
-
-        </div>
-        <div class="row">
+        <div class="row row-2">
             <!-- <div class="col-md-2"></div> -->
-            <div class="col-md-12">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
                 <h3>Property Types</h3>
-                <p class="desc-bubble"></p>
-                <img src="/Resources/PropertyTypes.PNG">
+                <img class="prop-chart" src="/Resources/PropertyTypes.PNG">
+                <p>This image shows the distribution of property types in our data set.  The most common listings were for entire homes or entire
+                    apartments, but the descriptions also get more granular, with listings specifying entire condominium or entire cottage.  For our model,
+                    we clustered these into categories including Entire Home, Entire Unit, Private Room, Shared Room, Camper/RV, and Other.
+                </p>
             </div>
         </div>
         </div>

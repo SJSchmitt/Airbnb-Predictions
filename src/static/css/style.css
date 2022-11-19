@@ -5,6 +5,25 @@ body{
   padding: 0;
   margin: 0;
   background-color: #f0fdfd;
+  font-size: 15pt;
+}
+
+h3{
+  font-size: 22pt;
+}
+
+h4{
+  font-size: 19pt;
+}
+
+.intro{
+  font-size: 16pt;
+}
+
+.row-2{
+  background-color: #ACE5EE;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .jumbotron {
@@ -15,6 +34,13 @@ body{
   width: 100%;
 }
 
+#intro {
+  text-align: justify;
+  padding-left: 50px;
+  padding-right: 50px;
+  margin-bottom: 20px;
+}
+
 #map-header {
   background-color: #03045e;
   color: #fff;
@@ -22,7 +48,7 @@ body{
 }
 
 #mapid {
-  height: 500px;
+  height: 550px;
 }
 
 .legend {
