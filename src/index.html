@@ -58,8 +58,8 @@
                 <p>Similar to price, this filter scales the color and shape based on the number of guests accommodated.</p>
                 <h4>By Host Listings</h4>
                 <p>This filter scales the color based on how many properties the host has listed, but does not scale the size.  This is because one 
-                    host ists over 2,500 properties, while the 75th percentile for listings falls at 17, so the size scaling wasn't particularly 
-                    informative.
+                    host lists over 500 properties, while the 75th percentile for listings falls at 17, so the size scaling wasn't particularly 
+                    informative and the larger hosts cluttered the map.
                 </p>
             </div>
         </div>
@@ -68,19 +68,19 @@
         <div class="row row-2">
             <div class="col-md-3"></div>
             <div class="col-md-6">
-                <h3>Price vs Property Type</h3>
+                <h3>Property Types</h3>
                 <div class='tableauPlaceholder' id='viz1669163259470' style='position: relative'><noscript><a href='#'><img alt='Price vs Property type ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Pr&#47;PricingvsPropertyType&#47;PricevsPropertytype&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='PricingvsPropertyType&#47;PricevsPropertytype' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Pr&#47;PricingvsPropertyType&#47;PricevsPropertytype&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1669163259470');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
-                <p class="chart-desc"> The chart above shows the relationship between price and property type. Entire homes and rental units
-                    fetch higher prices than private rooms.
+                <p class="chart-desc"> The chart above shows the range of property types and how populous each is. Entire homes and rental units
+                    are far more common than private rooms.
                 </p>
             </div>
             <div class="col-md-3"></div>
             </div>
 
-        <div class="row row-2">
+        <div class="row row-1">
         <div class="col-md-3"></div>
         <div class="col-md-6">
-            <h3>Price vs Guests</h3>
+            <h3>Price Distributions</h3>
             <div class='tableauPlaceholder' id='viz1668742107188' style='position: relative'><noscript><a href='#'><img alt='price_ranges ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ai&#47;AirbnbHousing&#47;price_ranges&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='AirbnbHousing&#47;price_ranges' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ai&#47;AirbnbHousing&#47;price_ranges&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1668742107188');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
             <p class="chart-desc">The image above shows the distribution of listing prices.  We did eventually make the decision to work only 
                 with prices less than $1000, so our model could more accurately suite the average guests needs, but most AirBNBs fell in that 
@@ -90,48 +90,34 @@
         <div class="col-md-3"></div>
         </div>
 
-        <div class="row row-1">
+        <div class="row row-2">
         <div class="col-md-3"></div>
         <div class="col-md-6">
-            <h3>Price Range</h3>
+            <h3>Price by Guests</h3>
             <!-- <p class="desc-gauge"></p>
             <img src="/Resources/price_ranges.png"> -->
             <div class='tableauPlaceholder' id='viz1668742421251' style='position: relative'><noscript><a href='#'><img alt='price vs accomodation ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ai&#47;AirbnbHousing&#47;pricevsaccomodation&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='AirbnbHousing&#47;pricevsaccomodation' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ai&#47;AirbnbHousing&#47;pricevsaccomodation&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1668742421251');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
             <p class="chart-desc">This chart shows the average listing price per night by the number of people a listing accommodates.  This relationship
-                is considerably linear, which makes sense given that the number of guests accommodated was the most important feature in our XGBoost model.
+                is considerably linear, which makes sense given that the number of guests accommodated was the most important feature in our XGBoost regression model.
             </p>
         </div>
         <div class="col-md-3"></div>
         </div>
-        
-        <div class="row row-2">
+
+        <div class="row row-1">
             <!-- <div class="col-md-2"></div> -->
-            <div class="col-md-1"></div>
-            <div class="col-md-10">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
                 <h3>Property Types</h3>
-                <img class="prop-chart" src="/Resources/PropertyTypes.PNG">
-                <p>This image shows the distribution of property types in our data set.  The most common listings were for entire homes or entire
-                    apartments, but the descriptions also get more granular, with listings specifying entire condominium or entire cottage.  For our model,
-                    we clustered these into categories including Entire Home, Entire Unit, Private Room, Shared Room, Camper/RV, and Other.
+                <img class="prop-chart" src="/Resources/fitted_features.PNG">
+                <p> In exploring our data we removed many columns that were not necessary for our model. Based on the features we selected, the model determined
+                    that accomodation, number of bathrooms and whether the rental was an entire home, were the most important in predicting price.
                 </p>
             </div>
+            <div class="col-md-3"></div>
         </div>
-        </div>
-    </div>
 
-    <div class="row row-2">
-        <!-- <div class="col-md-2"></div> -->
-        <div class="col-md-1"></div>
-        <div class="col-md-10">
-            <h3>Property Types</h3>
-            <img class="prop-chart" src="/Resources/Feature_Importances.png">
-            <p> In exploring our data we removed many columns that were not necessary for our model. Based on the features we selected, the model determined
-                that accomodation, number of bathrooms and whether the rental was an entire home, were the most important in predicting price.
-            </p>
-        </div>
     </div>
-    </div>
-</div>
 
     <!-- Leaflet JavaScript -->
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
