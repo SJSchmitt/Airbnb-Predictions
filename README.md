@@ -184,4 +184,8 @@ which we trained over 100 epochs.  Though given the same data as the XGBoost mod
     
 ![neural network metrics](Resources/nn_metrics.PNG)
 
-    
+# Results/Recommendations
+
+After performing the machine learning and neural network analysis, there are a number of conclusions we can draw. Our training r2 of 0.7944 is high, and the remaining is most likely made up of a couple different variables. We did not include acommodations as these were hard to quantify into the model and required a lot of changes to the data, and the accoommodations definitely play a part in determining the price. Additionally, something that certainly has an effect on price is the quality of pictures taken. Pictures are make or break for the app and rentals with high quanlity pictures of the living space are sure to be rented more often.
+
+In the future, finding a way to incorporate image quality and accommodations will likely play a big part in fine tuning the model. One could also find/scrape more accurate data to determine real prices paid for the Airbnb instead of the listing price. This data could also factor in how often an Airbnb is booked, as that was not necessarily taken into account.
