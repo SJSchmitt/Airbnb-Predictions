@@ -184,4 +184,6 @@ which we trained over 100 epochs.  Though given the same data as the XGBoost mod
     
 ![neural network metrics](Resources/nn_metrics.PNG)
 
-    
+# Results
+
+After performing the machine learning and neural network analysis, there are a number of conclusions we can draw. Our training r2 of 0.7944 is high, and the remaining is most likely made up of a couple different variables. We did not include acommodations as these were hard to quantify into the model and required a lot of changes to the data, and the accoommodations definitely play a part in determining the price.
